@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meal_app/Screens/Category_Meals_Screen.dart';
 import 'package:meal_app/Screens/Filters_Screen.dart';
 import 'package:meal_app/Screens/Meal_Details_Screen.dart';
-import 'package:meal_app/dummy_data.dart';
+import 'package:meal_app/Data/dummy_data.dart';
 
 import 'Models/Meal.dart';
 import 'Screens/Tabs_Screen.dart';
@@ -77,7 +77,7 @@ class _MyAppState extends State<MyApp> {
             canvasColor: const Color.fromRGBO(255, 254, 229, 1),
       ),
       routes: {
-        '/' : (context) => tabsScreen(_favoriteMeals),
+        '/' : (context) => TabsScreen(_favoriteMeals),
         CategoryMealsScreen.routeName: (context) => CategoryMealsScreen(_availableMeals),
         MealDetailsScreen.routeName: (context) => MealDetailsScreen(_toggleFavorite,_isMealFavorite),
         FilterScreen.routeName: (context) => FilterScreen( _setFilters , _Filters),

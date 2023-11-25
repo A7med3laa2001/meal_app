@@ -4,15 +4,15 @@ import 'package:meal_app/Screens/Categorey_Screen.dart';
 import 'package:meal_app/Screens/Favourite_Screen.dart';
 import 'package:meal_app/Widgets/main_Drawer.dart';
 
-class tabsScreen extends StatefulWidget {
+class TabsScreen extends StatefulWidget {
   final List<Meal> favoriteMeals;
-  const tabsScreen(this.favoriteMeals);
+  const TabsScreen(this.favoriteMeals, {super.key});
 
   @override
-  State<tabsScreen> createState() => _tabsScreenState();
+  State<TabsScreen> createState() => _TabsScreenState();
 }
 
-class _tabsScreenState extends State<tabsScreen> {
+class _TabsScreenState extends State<TabsScreen> {
   List<Map<String, Widget>>? _pages;
 
   int _selectPageIndex = 0;
@@ -27,7 +27,7 @@ class _tabsScreenState extends State<tabsScreen> {
       },
       {
         'page': FavouriateScreen(widget.favoriteMeals),
-        'title': const Text("Your Favouriates"),
+        'title': const Text("Your Favorites"),
       }
     ];
     super.initState();
@@ -50,14 +50,14 @@ class _tabsScreenState extends State<tabsScreen> {
           unselectedItemColor: Colors.white,
           currentIndex: _selectPageIndex,
           backgroundColor: Colors.pink,
-          items: [
-            const BottomNavigationBarItem(
+          items: const [
+            BottomNavigationBarItem(
               icon: Icon(Icons.category),
               label: "Categories",
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(Icons.star),
-              label: "Favouriates",
+              label: "Favorites",
             ),
           ]),
       drawer: const MainDrawer(),
