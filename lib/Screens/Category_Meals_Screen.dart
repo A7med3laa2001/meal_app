@@ -17,7 +17,7 @@ class CategoryMealsScreen extends StatefulWidget {
 
 class CategoryMealsScreenState extends State<CategoryMealsScreen> {
   String? categoryTitle;
-  List<Meal>? displayiedMeals;
+  List<Meal>? displayedMeals;
 
   @override
   void didChangeDependencies() {
@@ -25,7 +25,7 @@ class CategoryMealsScreenState extends State<CategoryMealsScreen> {
         ModalRoute.of(context)!.settings.arguments as Map<String, String>;
     final categoryId = routeArg['id'];
     categoryTitle = routeArg['title'];
-    displayiedMeals = widget._availableMeals.where((meal) {
+    displayedMeals = widget._availableMeals.where((meal) {
       return meal.categories.contains(categoryId);
     }).toList();
   }
@@ -43,15 +43,15 @@ class CategoryMealsScreenState extends State<CategoryMealsScreen> {
         title: Text(categoryTitle!),
       ),
       body: ListView.builder(
-        itemCount: displayiedMeals!.length,
+        itemCount: displayedMeals!.length,
         itemBuilder: (BuildContext context, int index) {
           return MealItem(
-            imageUrl: displayiedMeals![index].imageUrl,
-            title: displayiedMeals![index].title,
-            duration: displayiedMeals![index].duration,
-            complexity: displayiedMeals![index].complexity,
-            affordability: displayiedMeals![index].affordability,
-            id: displayiedMeals![index].id,
+            imageUrl: displayedMeals![index].imageUrl,
+            title: displayedMeals![index].title,
+            duration: displayedMeals![index].duration,
+            complexity: displayedMeals![index].complexity,
+            affordability: displayedMeals![index].affordability,
+            id: displayedMeals![index].id,
           );
         },
       ),

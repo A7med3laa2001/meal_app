@@ -36,7 +36,7 @@ class _FilterScreenState extends State<FilterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Your Filters"),
+        title: const Text("Your Filters"),
         actions: [
           IconButton(
             onPressed: () {
@@ -49,15 +49,15 @@ class _FilterScreenState extends State<FilterScreen> {
 
               widget.saveFilters(selectedFilters);
             },
-            icon: Icon(Icons.save),
+            icon: const Icon(Icons.save),
           )
         ],
       ),
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
-            child: Text(
+            padding: const EdgeInsets.all(20),
+            child: const Text(
               " Adjust Your Filters",
               style: TextStyle(
                 fontSize: 20,
@@ -97,7 +97,7 @@ class _FilterScreenState extends State<FilterScreen> {
           )
         ],
       ),
-      drawer: MainDrawer(),
+      drawer: const MainDrawer(),
     );
   }
 

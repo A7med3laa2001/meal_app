@@ -12,7 +12,9 @@ class FavouriateScreen extends StatelessWidget {
     if (favoriteMeals.isEmpty) {
       return const Center(
         child: Text(
-            "You have not favorite meals yet - please add some!!"),
+            "You have not favorite meals yet - please add some!!",
+          style: TextStyle(fontSize: 16),
+        ),
       );
     }else{
       return ListView.builder(

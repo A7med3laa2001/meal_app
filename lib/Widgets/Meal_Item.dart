@@ -10,6 +10,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+
   const MealItem({
     required this.imageUrl,
     required this.id,
@@ -19,31 +20,38 @@ class MealItem extends StatelessWidget {
     required this.affordability,
   });
 
-  String? get complexityText{
-    switch(complexity){
-      case Complexity.Simple: return 'Simple';
-      case Complexity.Challeging: return 'Challeging';
-      case Complexity.Hard: return 'Hard';
-      default : return 'Unknown';
+  String? get complexityText {
+    switch (complexity) {
+      case Complexity.simple:
+        return 'Simple';
+      case Complexity.challenging:
+        return 'Challeging';
+      case Complexity.hard:
+        return 'Hard';
+      default:
+        return 'Unknown';
     }
   }
 
-  String? get affordabilityText{
-    switch(affordability){
-      case Affordability.Affordable: return 'Affordable';
-      case Affordability.Luxurious: return 'Luxurious';
-      case Affordability.Pricey: return 'Pricey';
-      default : return 'Unknown';
+  String? get affordabilityText {
+    switch (affordability) {
+      case Affordability.affordable:
+        return 'Affordable';
+      case Affordability.luxurious:
+        return 'Luxurious';
+      case Affordability.pricey:
+        return 'Pricey';
+      default:
+        return 'Unknown';
     }
   }
-
-
 
   void selectMeal(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(MealDetailsScreen.routeName,
-    arguments: id).then((result) {
+    Navigator.of(ctx)
+        .pushNamed(MealDetailsScreen.routeName, arguments: id)
+        .then((result) {
       //if (result != null) removeItem(result);
-      });
+    });
   }
 
   @override
@@ -80,9 +88,14 @@ class MealItem extends StatelessWidget {
                         const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                     child: Text(
                       title,
-                      style: const TextStyle(fontSize: 24, color: Colors.white),
+                      style: const TextStyle(
+                        fontSize: 24,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                       softWrap: true,
-                      overflow: TextOverflow.fade,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
                     ),
                   ),
                 )
